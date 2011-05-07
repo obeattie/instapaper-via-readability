@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Instapaper via Readability options</title>
+        
+        <link rel="stylesheet" type="text/css" href="options.css" />
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="options.js"></script>
+    </head>
+    <body>
+        <form id="options-form">
+            <h1>Instapaper settings</h1>
+            
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username" /><br />
+            
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" /><br />
+            
+            <div id="submit">
+                <input type="submit" value="Save"></input>
+                <span id="throbber"></span>
+                <span id="success">Saved</span>
+                <span id="error"></span>
+            </div>
+        </form>
+    </body>
+</html>

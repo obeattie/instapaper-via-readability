@@ -1,0 +1,17 @@
+{
+    "name": "Instapaper via Readability",
+    "version": "1.0",
+    "description": "Designed to go hand-in-hand with the Readability extension, makes the 'Read later' button on Readability pages save to Instapaper instead",
+    "background_page": "background.html",
+    "options_page": "options.html",
+    "permissions": [
+        "https://www.instapaper.com/api/*",
+        "https://www.readability.com/articles/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://www.readability.com/articles/*"],
+            "js": ["jquery.js", "instapaper.js"]
+        }
+    ]
+}
