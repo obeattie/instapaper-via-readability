@@ -1,6 +1,6 @@
 {
     "name": "Instapaper via Readability",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Designed to be used with the Readability extension, makes the 'Read later' button on Readability pages save to Instapaper instead",
     "background_page": "background.html",
     "options_page": "options.html",

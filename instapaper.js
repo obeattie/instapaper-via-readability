@@ -7,6 +7,9 @@
 */
 
 $(document).ready(function(){
+    // Hide the sign up form
+    $('#legacy-bkmk').remove();
+    // Create a new button replacing the old one
     var originalButton = $('#read-later-button');
     var button = $('#read-later-button').clone(false).text('Save to Instapaper').replaceAll(originalButton);
     // Click handler
