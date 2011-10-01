@@ -33,6 +33,17 @@ $(document).ready(function(){
             },
             success: function(){
                 $('#success').show().delay(2000).fadeOut(75);
+                if (window.location.search === '?modal') {
+                    // This is a popup options window that was opened from a save attempt; close the window,
+                    // and call back to the background view
+                    chrome.extension.sendRequest({ method: 'credentialsUpdated' }, function(){
+                        window.setTimeout(function(){
+                            chrome.windows.getCurrent(function(w){
+                                chrome.windows.remove(w.id);
+                            });
+                        }, 2075);
+                    });
+                }
             }
         });
         return false;

@@ -38,4 +38,12 @@ $(document).ready(function(){
         );
         return false;
     });
+    
+    // Listener for save events
+    chrome.extension.onRequest.addListener(function(options, sender, sendResponse){
+        console.log('Received ' + options.method, options);
+        if (options.method === 'save'){
+            button.click();
+        }
+    });
 });
