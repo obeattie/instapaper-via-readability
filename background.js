@@ -7,17 +7,24 @@
 */
 
 chrome.extension.onRequest.addListener(
-    function(request, sender, sendResponse){
-        // Set the username and password
-        request.username = localStorage['username'];
-        request.password = localStorage['password'];
-        
-        $.ajax({
-            url: 'https://www.instapaper.com/api/add',
-            dataType: 'json',
-            type: 'GET',
-            data: request,
-            complete: sendResponse
-        });
+    function(options, sender, sendResponse){
+        if (options.method === 'openOptions') {
+            chrome.tabs.create({
+                url: 'options.html'
+            });
+        } else if (options.method === 'save') {
+            request = options.request;
+            // Set the username and password
+            request.username = localStorage['username'];
+            request.password = localStorage['password'];
+            
+            $.ajax({
+                url: 'https://www.instapaper.com/api/add',
+                dataType: 'json',
+                type: 'GET',
+                data: request,
+                complete: sendResponse
+            });
+        }
     }
 );

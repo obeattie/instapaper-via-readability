@@ -42,7 +42,6 @@ h1 {
   position: relative;
   top: 2px;
   left: 4px;
-  display: none;
 }
 
 #success {
@@ -61,6 +60,12 @@ h1 {
     display: block;
     margin-left: 103px;
     margin-top: 20px;
+}
+
+form {
+    display: block;
+    width: 500px;
+    padding: 30px;
 }
 
 /* Button styles */

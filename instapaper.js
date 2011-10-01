@@ -14,14 +14,18 @@ $(document).ready(function(){
     var button = $('#read-later-button').clone(false).text('Save to Instapaper').replaceAll(originalButton);
     // Click handler
     button.click(function(){
-        chrome.extension.sendRequest(
-            {
+        chrome.extension.sendRequest({
+            method: 'save',
+            request: {
                 url: $('#article-url').attr('href'),
                 title: $('#article-entry-title').text()
-            },
+            }},
             function(response){
                 if (response.status === 403) {
-                    alert('Couldn\'t save to Instapaper as your username or password is invalid');
+                    alert('Couldn\'t save to Instapaper: your username or password is invalid');
+                    chrome.extension.sendRequest({
+                        method: 'openOptions'
+                    });
                 } else if (response.status !== 201) {
                     alert('An error occured while saving to Instapaper');
                 } else {
